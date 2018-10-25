@@ -11,16 +11,22 @@
 </head>
 
 <body>
-  <div id="docHead"></div>
+  <div id="divLoading">
+    <p id="loading">
+        <img src="images/spinner.gif">
+    </p>
+  </div>
+  
+  <div id="docHead" style="text-align:center;"></div>
 
-  <div class="container text-center">
+  <div class="container text-center" style="text-align:center;">
     <p>
-      <button id="prev" class="btn btn-warning btn-sml" role="button">« Previous</button>
-      <button id="next" class="btn btn-warning btn-sml" role="button">Next »</button>
+      <button id="prev" class="btn btn-warning btn-sml" role="button"> « </button>
+      <button id="next" class="btn btn-warning btn-sml" role="button"> » </button>
     </p>
   </div>
 
-  <div id="docBod" style="overflow-x:auto;"></div>
+  <div id="docBod" style="overflow-y: auto;"></div>
 
 
   <script src="script.js"></script>

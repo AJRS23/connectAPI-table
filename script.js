@@ -4,28 +4,60 @@ function bindButtons() {
   var docBod = document.getElementById('docBod');  //Obtain the body
   var docHead = document.getElementById('docHead');
   var f = 1;    //First page
+  //document.getElementById('divLoading').style.display = 'block';//Visible
   loadBody(docHead,docBod,f);
+  //document.getElementById('divLoading').style.display = 'none'; //Not Visible
+
+  var nbutton = document.getElementById('next');
+  var pbutton = document.getElementById('prev');
+
+
+  pbutton.style.display = 'none';
+    //pbutton.toggle(false);
 
   //Next button
-  document.getElementById('next').addEventListener('click', function(event){
-    if (f < 7) {
+  nbutton.addEventListener('click', function(event){
+  if (f <= 6) {
       docHead.innerHTML = ""
       docBod.innerHTML = "";    //Reload body
       f++;    //Increase page
-      loadBody(docHead,docBod, f);
-
+      if(f==2){
+          pbutton.style.display = 'inline';
+      }
+      //document.getElementById('divLoading').style.display = 'block';//Visible
+      loadBody(docHead,docBod,f);
+      //document.getElementById('divLoading').style.display = 'none'; //Not Visible
+    }
+    if (f == 7){
+        nbutton.style.display = 'none';
     }
   });
 
   //Previous button
-  document.getElementById('prev').addEventListener('click', function(event){
+  pbutton.addEventListener('click', function(event){
     if (f > 1) {
       docHead.innerHTML = ""
       docBod.innerHTML = "";
       f--;    //Decrease page
+      if(f==6){
+        nbutton.style.display = 'inline'
+      }
+
+      //document.getElementById('divLoading').style.display = 'block';//Visible
       loadBody(docHead,docBod,f);
+      //document.getElementById('divLoading').style.display = 'none'; //Not Visible
+
+    }
+    if (f == 1){
+        pbutton.style.display = 'none';
     }
   });
+
+  if (f == 7){
+    document.getElementById('next').style.display = 'none';
+  }
+
+
 }
 
 function loadBody (docHead, docBod, f){
@@ -141,7 +173,7 @@ function loadJson(tBody , f){
       console.log('Error in network request: ' + req.statusText);
     }
   });
-  
+
   req.send(null);
   event.preventDefault();
 }
