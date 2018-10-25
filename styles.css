@@ -22,7 +22,25 @@ button {
     background-color: #000000;
     border-radius: 12px;
     padding: 5px 5px;
-    text-align: center;
     color: white;
 
+
 }
+#divLoading {
+  margin: 0px;
+  display: none;
+  padding: 0px;
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  z-index: 30001;
+  opacity: 0.8;}
+
+#loading {
+   position: absolute;
+   color: White;
+  top: 50%;
+  left: 45%;}
